@@ -7,33 +7,35 @@ import task5.DecimalComparator;
 import task6.EqualSumChecker;
 import task7.TeenNumberChecker;
 import task8.AreaCalculator;
+import task9.MinutesToYearsAndDaysCalculator;
+import task10.IntEqualityPrinter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ExerciseTests {
     @Test
     public void toMilesPerHourTest() {
-        assertEquals(1,SpeedConverter.toMilesPerHour(1.5));
-        assertEquals(6,SpeedConverter.toMilesPerHour(10.25));
+        assertEquals(1, SpeedConverter.toMilesPerHour(1.5));
+        assertEquals(6, SpeedConverter.toMilesPerHour(10.25));
         assertThrows(IllegalArgumentException.class, () -> SpeedConverter.toMilesPerHour(-5.6));
-        assertEquals(16,SpeedConverter.toMilesPerHour(25.42));
-        assertEquals(47,SpeedConverter.toMilesPerHour(75.114));
+        assertEquals(16, SpeedConverter.toMilesPerHour(25.42));
+        assertEquals(47, SpeedConverter.toMilesPerHour(75.114));
     }
 
     @Test
     public void printConversionTest() {
-        assertEquals("1.5 km/h = 1 mi/h",SpeedConverter.printConversion(1.5));
-        assertEquals("10.25 km/h = 6 mi/h",SpeedConverter.printConversion(10.25));
+        assertEquals("1.5 km/h = 1 mi/h", SpeedConverter.printConversion(1.5));
+        assertEquals("10.25 km/h = 6 mi/h", SpeedConverter.printConversion(10.25));
         assertThrows(IllegalArgumentException.class, () -> SpeedConverter.printConversion(-5.6));
-        assertEquals("25.42 km/h = 16 mi/h",SpeedConverter.printConversion(25.42));
-        assertEquals("75.114 km/h = 47 mi/h",SpeedConverter.printConversion(75.114));
+        assertEquals("25.42 km/h = 16 mi/h", SpeedConverter.printConversion(25.42));
+        assertEquals("75.114 km/h = 47 mi/h", SpeedConverter.printConversion(75.114));
     }
 
     @Test
     public void MegaBytesConversionTest() {
-        assertEquals("2500 KB = 2 MB and 452 KB",MegaBytesConverter.printMegaBytesAndKiloBytes(2500));
+        assertEquals("2500 KB = 2 MB and 452 KB", MegaBytesConverter.printMegaBytesAndKiloBytes(2500));
         assertThrows(IllegalArgumentException.class, () -> MegaBytesConverter.printMegaBytesAndKiloBytes(-1024));
-        assertEquals("5000 KB = 4 MB and 904 KB",MegaBytesConverter.printMegaBytesAndKiloBytes(5000));
+        assertEquals("5000 KB = 4 MB and 904 KB", MegaBytesConverter.printMegaBytesAndKiloBytes(5000));
     }
 
     @Test
@@ -62,10 +64,10 @@ public class ExerciseTests {
 
     @Test
     public void hasEqualSumTest() {
-        assertFalse(EqualSumChecker.hasEqualSum(1,1,1));
-        assertTrue(EqualSumChecker.hasEqualSum(1,1,2));
-        assertTrue(EqualSumChecker.hasEqualSum(1,-1,0));
-        assertFalse(EqualSumChecker.hasEqualSum(Integer.MAX_VALUE,1,Integer.MIN_VALUE));
+        assertFalse(EqualSumChecker.hasEqualSum(1, 1, 1));
+        assertTrue(EqualSumChecker.hasEqualSum(1, 1, 2));
+        assertTrue(EqualSumChecker.hasEqualSum(1, -1, 0));
+        assertFalse(EqualSumChecker.hasEqualSum(Integer.MAX_VALUE, 1, Integer.MIN_VALUE));
     }
 
     @Test
@@ -83,9 +85,30 @@ public class ExerciseTests {
 
     @Test
     public void areaTest() {
-        assertEquals(78.53982,AreaCalculator.area(5.0),0.00001);
+        assertEquals(78.53982, AreaCalculator.area(5.0), 0.00001);
         assertThrows(IllegalArgumentException.class, () -> AreaCalculator.area(-1));
-        assertEquals(20.0,AreaCalculator.area(5.0, 4.0),0.00001);
-        assertThrows(IllegalArgumentException.class, () -> AreaCalculator.area(-1.0,4.0));
+        assertEquals(20.0, AreaCalculator.area(5.0, 4.0), 0.00001);
+        assertThrows(IllegalArgumentException.class, () -> AreaCalculator.area(-1.0, 4.0));
+    }
+
+    @Test
+    public void printYearsAndDaysTest() {
+        assertEquals("525600 min = 1 y and 0 d",
+                MinutesToYearsAndDaysCalculator.printYearsAndDays(525600));
+        assertEquals("1051200 min = 2 y and 0 d",
+                MinutesToYearsAndDaysCalculator.printYearsAndDays(1051200));
+        assertEquals("561600 min = 1 y and 25 d",
+                MinutesToYearsAndDaysCalculator.printYearsAndDays(561600));
+        assertThrows(IllegalArgumentException.class, () ->
+                MinutesToYearsAndDaysCalculator.printYearsAndDays(-2));
+    }
+
+    @Test
+    public void printEqualTest() {
+        assertEquals("All numbers are equal", IntEqualityPrinter.printEqual(1, 1, 1));
+        assertEquals("Neither all are equal or different", IntEqualityPrinter.printEqual(1, 1, 2));
+        assertThrows(IllegalArgumentException.class, () ->
+                IntEqualityPrinter.printEqual(-1, -1, -1));
+        assertEquals("All numbers are different", IntEqualityPrinter.printEqual(1, 2, 3));
     }
 }
