@@ -10,7 +10,7 @@ public class SpeedConverter {
     public static String printConversion(double kilometersPerHour) {
         if (kilometersPerHour < 0)
             throw new IllegalArgumentException("Input must be non-negative");
-        String text = Double.toString(Math.abs(kilometersPerHour));
+        String text = String.valueOf(Math.abs(kilometersPerHour));
         int decimalPlaces = text.length() - text.indexOf('.') - 1;
         return String.format("%."+decimalPlaces+"f km/h = %d mi/h", kilometersPerHour, toMilesPerHour(kilometersPerHour));
     }

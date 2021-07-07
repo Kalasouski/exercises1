@@ -1,7 +1,6 @@
 package task4;
 
 public class LeapYear {
-
     public static boolean isLeapYear(int year) {
         if (year < 1 || year > 9999)
             throw new IllegalArgumentException("Year must be in range [1,9999]");

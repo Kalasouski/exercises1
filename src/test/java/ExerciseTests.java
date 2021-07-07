@@ -3,6 +3,8 @@ import task1.SpeedConverter;
 import task2.MegaBytesConverter;
 import task3.BarkingDog;
 import task4.LeapYear;
+import task5.DecimalComparator;
+import task6.EqualSumChecker;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -46,5 +48,21 @@ public class ExerciseTests {
         assertTrue(LeapYear.isLeapYear(1600));
         assertFalse(LeapYear.isLeapYear(2017));
         assertTrue(LeapYear.isLeapYear(2000));
+    }
+
+    @Test
+    public void decimalComparatorTest() {
+        assertTrue(DecimalComparator.areEqualByThreeDecimalPlaces(-3.1756, -3.175));
+        assertFalse(DecimalComparator.areEqualByThreeDecimalPlaces(3.175, 3.176));
+        assertTrue(DecimalComparator.areEqualByThreeDecimalPlaces(3.0, 3.0));
+        assertFalse(DecimalComparator.areEqualByThreeDecimalPlaces(-3.123, 3.123));
+    }
+
+    @Test
+    public void hasEqualSumTest() {
+        assertFalse(EqualSumChecker.hasEqualSum(1,1,1));
+        assertTrue(EqualSumChecker.hasEqualSum(1,1,2));
+        assertTrue(EqualSumChecker.hasEqualSum(1,-1,0));
+        assertFalse(EqualSumChecker.hasEqualSum(Integer.MAX_VALUE,1,Integer.MIN_VALUE));
     }
 }
