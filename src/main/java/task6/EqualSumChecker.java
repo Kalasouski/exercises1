@@ -5,7 +5,6 @@ public class EqualSumChecker {
         long sum = (long)a+(long)b;
         if(sum>Integer.MAX_VALUE || sum<Integer.MIN_VALUE)
             return false;
-        
         return sum == c;
     }
 }
