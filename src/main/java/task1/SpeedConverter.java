@@ -1,7 +1,6 @@
 package task1;
 
 public class SpeedConverter {
-
     public static long toMilesPerHour(double kilometersPerHour) {
         if (kilometersPerHour < 0)
             throw new IllegalArgumentException("Input must be non-negative");
