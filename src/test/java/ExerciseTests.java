@@ -1,6 +1,7 @@
 import org.junit.Test;
 import task1.SpeedConverter;
 import task2.MegaBytesConverter;
+import task3.BarkingDog;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -28,5 +29,13 @@ public class ExerciseTests {
         assertEquals(MegaBytesConverter.printMegaBytesAndKiloBytes(2500), "2500 KB = 2 MB and 452 KB");
         assertThrows(IllegalArgumentException.class, () -> MegaBytesConverter.printMegaBytesAndKiloBytes(-1024));
         assertEquals(MegaBytesConverter.printMegaBytesAndKiloBytes(5000), "5000 KB = 4 MB and 904 KB");
+    }
+
+    @Test
+    public void shouldWakeUpTest() {
+        assertTrue(BarkingDog.shouldWakeUp(true, 1));
+        assertFalse(BarkingDog.shouldWakeUp(false, 2));
+        assertFalse(BarkingDog.shouldWakeUp(true, 8));
+        assertThrows(IllegalArgumentException.class, () -> BarkingDog.shouldWakeUp(true, -1));
     }
 }
