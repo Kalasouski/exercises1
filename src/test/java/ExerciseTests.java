@@ -2,6 +2,7 @@ import org.junit.Test;
 import task1.SpeedConverter;
 import task2.MegaBytesConverter;
 import task3.BarkingDog;
+import task4.LeapYear;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -37,5 +38,13 @@ public class ExerciseTests {
         assertFalse(BarkingDog.shouldWakeUp(false, 2));
         assertFalse(BarkingDog.shouldWakeUp(true, 8));
         assertThrows(IllegalArgumentException.class, () -> BarkingDog.shouldWakeUp(true, -1));
+    }
+
+    @Test
+    public void leapYearTest() {
+        assertThrows(IllegalArgumentException.class, () -> LeapYear.isLeapYear(-1600));
+        assertTrue(LeapYear.isLeapYear(1600));
+        assertFalse(LeapYear.isLeapYear(2017));
+        assertTrue(LeapYear.isLeapYear(2000));
     }
 }
