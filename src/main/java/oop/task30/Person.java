@@ -13,8 +13,13 @@ public class Person {
     private String lastName;
 
     @Getter
-    @Setter
     private int age;
+
+    public void setAge(int age) {
+        if(age<0)
+            throw new IllegalArgumentException("Age must be non-negative number");
+        this.age = age;
+    }
 
     public boolean isTeen() {
         return age > 12 && age < 20;
