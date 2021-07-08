@@ -17,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ExerciseTests {
+    // @ParametrizedTest
     @Test
     public void toMilesPerHourTest() {
         assertEquals(1, SpeedConverter.toMilesPerHour(1.5));
