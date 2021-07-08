@@ -1,11 +1,12 @@
 package task13;
+
 import task4.LeapYear;
 
 public class NumberOfDaysInMonth {
     public static int getDaysInMonth(int month, int year) {
-        if(month<1 || month>12)
+        if (month < 1 || month > 12)
             throw new IllegalArgumentException("Month must be in range [1,12]");
-        if(year<1 || year>9999)
+        if (year < 1 || year > 9999)
             throw new IllegalArgumentException("Year must be in range [1,9999]");
         switch (month) {
             case 1:
@@ -22,7 +23,7 @@ public class NumberOfDaysInMonth {
             case 11:
                 return 30;
             case 2:
-                if(LeapYear.isLeapYear(year))
+                if (LeapYear.isLeapYear(year))
                     return 29;
                 return 28;
             default:

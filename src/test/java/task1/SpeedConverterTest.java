@@ -5,6 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
+
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -46,7 +47,7 @@ class SpeedConverterTest {
     @ParameterizedTest(name = "{index} => kph={0}, str={1}")
     @MethodSource("kilometersToConversionString")
     void givenConversionPrinterWhenPassingValidArgumentThenReturnsConversionString(double kilometersPerHour, String conversionString) {
-        assertEquals(conversionString,SpeedConverter.printConversion(kilometersPerHour));
+        assertEquals(conversionString, SpeedConverter.printConversion(kilometersPerHour));
     }
 
     @ParameterizedTest(name = "{index} => kph={0}")

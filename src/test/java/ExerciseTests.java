@@ -119,23 +119,23 @@ public class ExerciseTests {
 
     @Test
     public void isCatPlayingTest() {
-        assertFalse(PlayingCat.isCatPlaying(true,10));
-        assertFalse(PlayingCat.isCatPlaying(false,36));
-        assertTrue(PlayingCat.isCatPlaying(false,35));
+        assertFalse(PlayingCat.isCatPlaying(true, 10));
+        assertFalse(PlayingCat.isCatPlaying(false, 36));
+        assertTrue(PlayingCat.isCatPlaying(false, 35));
     }
 
     @Test
     public void printNumberInWordTest() {
-        assertEquals("OTHER",NumberInWord.printNumberInWord(-4));
-        assertEquals("EIGHT",NumberInWord.printNumberInWord(8));
-        assertEquals("TWO",NumberInWord.printNumberInWord(2));
+        assertEquals("OTHER", NumberInWord.printNumberInWord(-4));
+        assertEquals("EIGHT", NumberInWord.printNumberInWord(8));
+        assertEquals("TWO", NumberInWord.printNumberInWord(2));
     }
 
     @Test
     public void getDaysInMonthTest() {
-        assertEquals(31,NumberOfDaysInMonth.getDaysInMonth(1,2020));
-        assertEquals(29,NumberOfDaysInMonth.getDaysInMonth(2,2020));
-        assertEquals(28,NumberOfDaysInMonth.getDaysInMonth(2,2018));
-        assertThrows(IllegalArgumentException.class,()->NumberOfDaysInMonth.getDaysInMonth(-1,2020));
+        assertEquals(31, NumberOfDaysInMonth.getDaysInMonth(1, 2020));
+        assertEquals(29, NumberOfDaysInMonth.getDaysInMonth(2, 2020));
+        assertEquals(28, NumberOfDaysInMonth.getDaysInMonth(2, 2018));
+        assertThrows(IllegalArgumentException.class, () -> NumberOfDaysInMonth.getDaysInMonth(-1, 2020));
     }
 }
