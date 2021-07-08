@@ -12,6 +12,32 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 class SpeedConverterTest {
+    // Given => When => Then
+    // givenSmth_whenSmth_thenSmth
+    @ParameterizedTest(name = "When kph={0} then mph={1}")
+    @MethodSource("kilometersToMiles")
+    void givenSpeedConverterWhenPassingValidArgumentThenReturnsConvertedValue(double kilometersPerHour, int milesPerHour) {
+        assertEquals(milesPerHour, SpeedConverter.toMilesPerHour(kilometersPerHour));
+    }
+
+    @ParameterizedTest(name = "When kph={0} then exception")
+    @ValueSource(doubles = {-5.6, -1})
+    void givenSpeedConverterWhenPassingInvalidArgumentThenThrowsException(double kilometersPerHour) {
+        assertThrows(IllegalArgumentException.class, () -> SpeedConverter.toMilesPerHour(kilometersPerHour));
+    }
+
+    @ParameterizedTest(name = "When kph={0} then str={1}")
+    @MethodSource("kilometersToConversionString")
+    void givenConversionPrinterWhenPassingValidArgumentThenReturnsConversionString(double kilometersPerHour, String conversionString) {
+        assertEquals(conversionString, SpeedConverter.printConversion(kilometersPerHour));
+    }
+
+    @ParameterizedTest(name = "When kph={0} then exception")
+    @ValueSource(doubles = {-5.6, -1})
+    void givenConversionPrinterWhenPassingInvalidArgumentThenThrowsException(double kilometersPerHour) {
+        assertThrows(IllegalArgumentException.class, () -> SpeedConverter.printConversion(kilometersPerHour));
+    }
+
     private static Stream<Arguments> kilometersToMiles() {
         return Stream.of(
                 arguments(1.5, 1),
@@ -28,31 +54,5 @@ class SpeedConverterTest {
                 arguments(25.42, "25.42 km/h = 16 mi/h"),
                 arguments(75.114, "75.114 km/h = 47 mi/h")
         );
-    }
-
-    // Given => When => Then
-    // givenSmth_whenSmth_thenSmth
-    @ParameterizedTest(name = "{index} => kph={0}, mph={1}")
-    @MethodSource("kilometersToMiles")
-    void givenSpeedConverterWhenPassingValidArgumentThenReturnsConvertedValue(double kilometersPerHour, int milesPerHour) {
-        assertEquals(milesPerHour, SpeedConverter.toMilesPerHour(kilometersPerHour));
-    }
-
-    @ParameterizedTest(name = "{index} => kph={0}")
-    @ValueSource(doubles = {-5.6, -1})
-    void givenSpeedConverterWhenPassingInvalidArgumentThenThrowsException(double kilometersPerHour) {
-        assertThrows(IllegalArgumentException.class, () -> SpeedConverter.toMilesPerHour(kilometersPerHour));
-    }
-
-    @ParameterizedTest(name = "{index} => kph={0}, str={1}")
-    @MethodSource("kilometersToConversionString")
-    void givenConversionPrinterWhenPassingValidArgumentThenReturnsConversionString(double kilometersPerHour, String conversionString) {
-        assertEquals(conversionString, SpeedConverter.printConversion(kilometersPerHour));
-    }
-
-    @ParameterizedTest(name = "{index} => kph={0}")
-    @ValueSource(doubles = {-5.6, -1})
-    void givenConversionPrinterWhenPassingInvalidArgumentThenThrowsException(double kilometersPerHour) {
-        assertThrows(IllegalArgumentException.class, () -> SpeedConverter.printConversion(kilometersPerHour));
     }
 }
