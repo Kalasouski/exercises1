@@ -15,8 +15,8 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 class MegaBytesConverterTest {
     private static Stream<Arguments> bytesToKiloBytes() {
         return Stream.of(
-                arguments(2500,"2500 KB = 2 MB and 452 KB"),
-                arguments(5000,"5000 KB = 4 MB and 904 KB")
+                arguments(2500, "2500 KB = 2 MB and 452 KB"),
+                arguments(5000, "5000 KB = 4 MB and 904 KB")
         );
     }
 
@@ -27,7 +27,7 @@ class MegaBytesConverterTest {
     }
 
     @ParameterizedTest(name = "{index} => KB={0}")
-    @ValueSource(ints = {-1024,-5})
+    @ValueSource(ints = {-1024, -5})
     void givenSpeedConverterWhenPassingInvalidArgumentThenThrowsException(double kilometersPerHour) {
         assertThrows(IllegalArgumentException.class, () -> SpeedConverter.toMilesPerHour(kilometersPerHour));
     }
