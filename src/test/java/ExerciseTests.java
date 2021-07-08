@@ -9,6 +9,7 @@ import task7.TeenNumberChecker;
 import task8.AreaCalculator;
 import task9.MinutesToYearsAndDaysCalculator;
 import task10.IntEqualityPrinter;
+import task11.PlayingCat;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -110,5 +111,12 @@ public class ExerciseTests {
         assertThrows(IllegalArgumentException.class, () ->
                 IntEqualityPrinter.printEqual(-1, -1, -1));
         assertEquals("All numbers are different", IntEqualityPrinter.printEqual(1, 2, 3));
+    }
+
+    @Test
+    public void isCatPlayingTest() {
+        assertFalse(PlayingCat.isCatPlaying(true,10));
+        assertFalse(PlayingCat.isCatPlaying(false,36));
+        assertTrue(PlayingCat.isCatPlaying(false,35));
     }
 }
