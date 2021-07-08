@@ -12,21 +12,21 @@ public class SimpleCalculator {
     @Setter
     private double secondNumber;
 
-    public double getAdditionResult(){
-        return firstNumber+secondNumber;
+    public double getAdditionResult() {
+        return firstNumber + secondNumber;
     }
 
-    public double getSubtractionResult(){
-        return firstNumber-secondNumber;
+    public double getSubtractionResult() {
+        return firstNumber - secondNumber;
     }
 
-    public double getMultiplicationResult(){
-        return firstNumber*secondNumber;
+    public double getMultiplicationResult() {
+        return firstNumber * secondNumber;
     }
 
-    public double getDivisionResult(){
-        if(secondNumber==0)
+    public double getDivisionResult() {
+        if (secondNumber == 0)
             throw new ArithmeticException("Division by zero is prohibited");
-        return firstNumber/secondNumber;
+        return firstNumber / secondNumber;
     }
 }
