@@ -16,7 +16,7 @@ public class Person {
     private int age;
 
     public void setAge(int age) {
-        if(age<0)
+        if (age < 0)
             throw new IllegalArgumentException("Age must be non-negative number");
         this.age = age;
     }
@@ -26,10 +26,10 @@ public class Person {
     }
 
     public String getFullName() {
-        if(firstName.isEmpty())
+        if (firstName.isEmpty())
             return lastName;
-        if(lastName.isEmpty())
+        if (lastName.isEmpty())
             return firstName;
-        return firstName+" "+lastName;
+        return firstName + " " + lastName;
     }
 }

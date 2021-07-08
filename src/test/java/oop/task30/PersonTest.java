@@ -23,15 +23,15 @@ class PersonTest {
     void givenIsTeenMethodThenReturnsCorrespondingBooleanValue(int age, boolean expected) {
         Person person = new Person();
         person.setAge(age);
-        assertEquals(expected,person.isTeen());
+        assertEquals(expected, person.isTeen());
     }
 
     private static Stream<Arguments> givenIsTeenMethodThenReturnsCorrespondingBooleanValue() {
         return Stream.of(
-                arguments(13,true),
-                arguments(12,false),
-                arguments(25,false),
-                arguments(19,true)
+                arguments(13, true),
+                arguments(12, false),
+                arguments(25, false),
+                arguments(19, true)
         );
     }
 }
