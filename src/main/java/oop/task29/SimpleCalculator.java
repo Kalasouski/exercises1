@@ -1,24 +1,16 @@
 package oop.task29;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class SimpleCalculator {
+    @Getter
+    @Setter
     private double firstNumber;
+
+    @Getter
+    @Setter
     private double secondNumber;
-
-    public double getFirstNumber() {
-        return firstNumber;
-    }
-
-    public double getSecondNumber() {
-        return secondNumber;
-    }
-
-    public void setFirstNumber(double firstNumber) {
-        this.firstNumber = firstNumber;
-    }
-
-    public void setSecondNumber(double secondNumber) {
-        this.secondNumber = secondNumber;
-    }
 
     public double getAdditionResult(){
         return firstNumber+secondNumber;
