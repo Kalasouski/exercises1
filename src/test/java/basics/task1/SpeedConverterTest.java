@@ -14,7 +14,7 @@ class SpeedConverterTest {
     // Given => When => Then
     // givenSmth_whenSmth_thenSmth
     @ParameterizedTest(name = "When kph={0} then mph={1}")
-    @MethodSource("kilometersToMiles")
+    @MethodSource
     void givenSpeedConverterWhenPassingValidArgumentThenReturnsConvertedValue(double kilometersPerHour, int milesPerHour) {
         assertEquals(milesPerHour, SpeedConverter.toMilesPerHour(kilometersPerHour));
     }
@@ -26,7 +26,7 @@ class SpeedConverterTest {
     }
 
     @ParameterizedTest(name = "When kph={0} then str={1}")
-    @MethodSource("kilometersToConversionString")
+    @MethodSource
     void givenConversionPrinterWhenPassingValidArgumentThenReturnsConversionString(double kilometersPerHour, String conversionString) {
         assertEquals(conversionString, SpeedConverter.printConversion(kilometersPerHour));
     }
@@ -37,7 +37,7 @@ class SpeedConverterTest {
         assertThrows(IllegalArgumentException.class, () -> SpeedConverter.printConversion(kilometersPerHour));
     }
 
-    private static Stream<Arguments> kilometersToMiles() {
+    private static Stream<Arguments> givenSpeedConverterWhenPassingValidArgumentThenReturnsConvertedValue() {
         return Stream.of(
                 arguments(1.5, 1),
                 arguments(10.25, 6),
@@ -46,7 +46,7 @@ class SpeedConverterTest {
         );
     }
 
-    private static Stream<Arguments> kilometersToConversionString() {
+    private static Stream<Arguments> givenConversionPrinterWhenPassingValidArgumentThenReturnsConversionString() {
         return Stream.of(
                 arguments(1.5, "1.5 km/h = 1 mi/h"),
                 arguments(10.25, "10.25 km/h = 6 mi/h"),
