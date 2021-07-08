@@ -10,8 +10,11 @@ import task8.AreaCalculator;
 import task9.MinutesToYearsAndDaysCalculator;
 import task10.IntEqualityPrinter;
 import task11.PlayingCat;
+import task12.NumberInWord;
+import task13.NumberOfDaysInMonth;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ExerciseTests {
     @Test
@@ -118,5 +121,20 @@ public class ExerciseTests {
         assertFalse(PlayingCat.isCatPlaying(true,10));
         assertFalse(PlayingCat.isCatPlaying(false,36));
         assertTrue(PlayingCat.isCatPlaying(false,35));
+    }
+
+    @Test
+    public void printNumberInWordTest() {
+        assertEquals("OTHER",NumberInWord.printNumberInWord(-4));
+        assertEquals("EIGHT",NumberInWord.printNumberInWord(8));
+        assertEquals("TWO",NumberInWord.printNumberInWord(2));
+    }
+
+    @Test
+    public void getDaysInMonthTest() {
+        assertEquals(31,NumberOfDaysInMonth.getDaysInMonth(1,2020));
+        assertEquals(29,NumberOfDaysInMonth.getDaysInMonth(2,2020));
+        assertEquals(28,NumberOfDaysInMonth.getDaysInMonth(2,2018));
+        assertThrows(IllegalArgumentException.class,()->NumberOfDaysInMonth.getDaysInMonth(-1,2020));
     }
 }
