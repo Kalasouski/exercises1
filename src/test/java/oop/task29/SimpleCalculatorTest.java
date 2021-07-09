@@ -78,7 +78,7 @@ class SimpleCalculatorTest {
                 arguments(3.25, 1.4, 4.65),
                 arguments(0, 1.4, 1.4),
                 arguments(1.4, 0, 1.4),
-                arguments(0,0,0)
+                arguments(0, 0, 0)
         );
     }
 
@@ -86,7 +86,7 @@ class SimpleCalculatorTest {
         return Stream.of(
                 arguments(4.0, 6.7, -2.7),
                 arguments(3.25, 1.4, 1.85),
-                arguments(0,0,0)
+                arguments(0, 0, 0)
         );
     }
 
@@ -94,7 +94,7 @@ class SimpleCalculatorTest {
         return Stream.of(
                 arguments(4.0, 6.7, 26.8),
                 arguments(3.25, 1.4, 4.55),
-                arguments(0,0,0)
+                arguments(0, 0, 0)
         );
     }
 }
