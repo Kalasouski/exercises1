@@ -20,11 +20,11 @@ public class Point {
     }
 
     public double distance(Point p) {
-        return distance(p.x,p.y);
+        return distance(p.x, p.y);
     }
 
     public double distance() {
-        return distance(0,0);
+        return distance(0, 0);
     }
 
 

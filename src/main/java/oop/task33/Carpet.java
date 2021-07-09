@@ -7,7 +7,7 @@ public class Carpet {
     private final double cost;
 
     public Carpet(double cost) {
-        if(cost<0)
+        if (cost < 0)
             throw new IllegalArgumentException("Cost must be non-negative");
         this.cost = cost;
     }

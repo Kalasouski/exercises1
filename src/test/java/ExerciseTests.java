@@ -1,5 +1,8 @@
-import org.junit.Test;
 import basics.task1.SpeedConverter;
+import basics.task10.IntEqualityPrinter;
+import basics.task11.PlayingCat;
+import basics.task12.NumberInWord;
+import basics.task13.NumberOfDaysInMonth;
 import basics.task2.MegaBytesConverter;
 import basics.task3.BarkingDog;
 import basics.task4.LeapYear;
@@ -8,13 +11,9 @@ import basics.task6.EqualSumChecker;
 import basics.task7.TeenNumberChecker;
 import basics.task8.AreaCalculator;
 import basics.task9.MinutesToYearsAndDaysCalculator;
-import basics.task10.IntEqualityPrinter;
-import basics.task11.PlayingCat;
-import basics.task12.NumberInWord;
-import basics.task13.NumberOfDaysInMonth;
+import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ExerciseTests {
     // @ParametrizedTest
