@@ -6,9 +6,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Wall {
     @Getter
-    double width;
+    private double width;
     @Getter
-    double height;
+    private double height;
 
     public Wall(double width, double height) {
         setWidth(width);
