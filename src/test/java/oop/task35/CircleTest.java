@@ -1,6 +1,5 @@
 package oop.task35;
 
-import oop.task34.ComplexNumber;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -23,14 +22,14 @@ class CircleTest {
     @MethodSource
     void givenAreaGetterMethodWhenPassingAnyArgsThenReturnsCorrespondingArea(double radius,
                                                                              double expectedArea) {
-        assertEquals(expectedArea, new Circle(radius).getArea(),0.0001);
+        assertEquals(expectedArea, new Circle(radius).getArea(), 0.0001);
     }
 
     private static Stream<Arguments> givenAreaGetterMethodWhenPassingAnyArgsThenReturnsCorrespondingArea() {
         return Stream.of(
                 arguments(3.4, 36.3168),
                 arguments(5, 78.5398),
-                arguments(0,0)
+                arguments(0, 0)
         );
     }
 }

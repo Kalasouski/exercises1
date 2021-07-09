@@ -24,28 +24,28 @@ class ComplexNumberTest {
     @ParameterizedTest
     @MethodSource
     void givenNumberArgAddMethodWhenPassingAnyArgsThenReturnsCorrespondingComplexNumber(double instanceReal,
-                                                                                         double instanceImaginary,
-                                                                                         ComplexNumber complexNumber,
-                                                                                         ComplexNumber expected) {
+                                                                                        double instanceImaginary,
+                                                                                        ComplexNumber complexNumber,
+                                                                                        ComplexNumber expected) {
         assertEquals(expected, new ComplexNumber(instanceReal, instanceImaginary).add(complexNumber));
     }
 
     @ParameterizedTest
     @MethodSource
     void givenDoubleArgsSubtractMethodWhenPassingAnyArgsThenReturnsCorrespondingComplexNumber(double instanceReal,
-                                                                                         double instanceImaginary,
-                                                                                         double real,
-                                                                                         double imaginary,
-                                                                                         ComplexNumber expected) {
+                                                                                              double instanceImaginary,
+                                                                                              double real,
+                                                                                              double imaginary,
+                                                                                              ComplexNumber expected) {
         assertEquals(expected, new ComplexNumber(instanceReal, instanceImaginary).subtract(real, imaginary));
     }
 
     @ParameterizedTest
     @MethodSource
     void givenNumberArgSubtractMethodWhenPassingAnyArgsThenReturnsCorrespondingComplexNumber(double instanceReal,
-                                                                                        double instanceImaginary,
-                                                                                        ComplexNumber complexNumber,
-                                                                                        ComplexNumber expected) {
+                                                                                             double instanceImaginary,
+                                                                                             ComplexNumber complexNumber,
+                                                                                             ComplexNumber expected) {
         assertEquals(expected, new ComplexNumber(instanceReal, instanceImaginary).subtract(complexNumber));
     }
 

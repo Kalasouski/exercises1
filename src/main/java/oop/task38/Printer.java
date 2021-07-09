@@ -28,9 +28,9 @@ public class Printer {
 
     public void printPages(int pages) {
         int pagesToPrint = pages;
-        if(duplex){
-            pagesToPrint/=2;
+        if (duplex) {
+            pagesToPrint /= 2;
         }
-        pagesPrinted+=pagesToPrint;
+        pagesPrinted += pagesToPrint;
     }
 }

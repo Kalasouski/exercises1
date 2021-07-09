@@ -21,7 +21,7 @@ class FloorTest {
     @ParameterizedTest(name = "When width={0} and length={1} then exception")
     @MethodSource
     void givenAreaGetterWhenHavingAnyInstanceVarsThenReturnsCorrespondingValue(double width, double length, double expected) {
-        assertEquals(expected,new Floor(width, length).getArea());
+        assertEquals(expected, new Floor(width, length).getArea());
     }
 
     private static Stream<Arguments> givenFloorConstructorWhenSettingNegativeValuesThenThrowsException() {
@@ -36,6 +36,6 @@ class FloorTest {
         return Stream.of(
                 arguments(1.2, 2, 2.4),
                 arguments(1, 0, 0)
-                );
+        );
     }
 }
