@@ -46,10 +46,10 @@ class PersonTest {
 
     private static Stream<Arguments> givenFullNameGetterWhenSettingAnyNamesThenReturnsCorrespondingFullName() {
         return Stream.of(
-                arguments("John", "Smith","John Smith"),
-                arguments("John", "","John"),
-                arguments("", "Smith","Smith"),
-                arguments("", "","")
+                arguments("John", "Smith", "John Smith"),
+                arguments("John", "", "John"),
+                arguments("", "Smith", "Smith"),
+                arguments("", "", "")
         );
     }
 }

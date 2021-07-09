@@ -30,6 +30,6 @@ public class Wall {
     }
 
     public double getArea() {
-        return width*height;
+        return width * height;
     }
 }
