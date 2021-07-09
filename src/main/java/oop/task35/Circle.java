@@ -8,12 +8,12 @@ public class Circle {
     private final double radius;
 
     public Circle(double radius) {
-        if(radius<0)
+        if (radius < 0)
             throw new IllegalArgumentException("Radius must be non-negative");
         this.radius = radius;
     }
 
     public double getArea() {
-        return radius*radius*Math.PI;
+        return radius * radius * Math.PI;
     }
 }
