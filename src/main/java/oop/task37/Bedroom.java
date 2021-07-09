@@ -20,7 +20,7 @@ public class Bedroom {
     @Getter
     private final Lamp lamp;
 
-    private String makeBed() {
+    public String makeBed() {
         return "The bad is being made\n" + bed.make();
     }
 }

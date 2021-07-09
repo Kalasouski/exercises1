@@ -8,7 +8,6 @@ public class Printer {
     private int pagesPrinted;
     private final boolean duplex;
 
-
     public Printer(int tonerLevel, boolean duplex) {
         if (tonerLevel < 0 || tonerLevel > 100)
             throw new IllegalArgumentException("tonerLevel must be in range [0,100]");
@@ -26,11 +25,12 @@ public class Printer {
         return tonerLevel;
     }
 
-    public void printPages(int pages) {
+    public int printPages(int pages) {
         int pagesToPrint = pages;
         if (duplex) {
             pagesToPrint /= 2;
         }
         pagesPrinted += pagesToPrint;
+        return pagesToPrint;
     }
 }
