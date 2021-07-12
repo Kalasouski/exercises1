@@ -60,7 +60,7 @@ public class MyLinkedList<T extends Comparable<T>> implements NodeList<T> {
     @Override
     public List<T> traverse(ListItem<T> root) {
         List<T> list = new ArrayList<>();
-        while (root!=null) {
+        while (root != null) {
             list.add(root.value);
             root = root.next();
         }
