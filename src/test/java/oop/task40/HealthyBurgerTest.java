@@ -21,14 +21,14 @@ class HealthyBurgerTest {
                                                                                                     double expectedPrice
     ) {
         HealthyBurger hamburger = new HealthyBurger(meat, price);
-        hamburger.addHealthyAddition1(name1,price1);
-        hamburger.addHealthyAddition2(name2,price2);
+        hamburger.addHealthyAddition1(name1, price1);
+        hamburger.addHealthyAddition2(name2, price2);
         assertEquals(expectedPrice, hamburger.itemizeHamburger());
     }
 
     private static Stream<Arguments> givenItemizeHamburgerMethodWhenSettingDifferentAdditionsThenReturnsCorrespondingTotalPrice() {
         return Stream.of(
-                arguments("ham",5.0,"Salad",0.4,"Bacon",0.3,5.7)
+                arguments("ham", 5.0, "Salad", 0.4, "Bacon", 0.3, 5.7)
         );
     }
 }

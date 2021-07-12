@@ -11,7 +11,7 @@ public class SortedArray {
         return arr;
     }*/
 
-    public static int[] sortIntegers(int[] arr){
+    public static int[] sortIntegers(int[] arr) {
         Arrays.sort(arr);
         return reverseIntegers(arr);
     }
