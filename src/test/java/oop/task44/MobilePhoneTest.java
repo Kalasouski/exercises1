@@ -1,63 +1,34 @@
 package oop.task44;
 
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
-import java.util.List;
-import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 class MobilePhoneTest {
-    @ParameterizedTest
-    @MethodSource
-    void givenAddNewContactMethodWhenAddingAnyContactThenAddsToContactList(Contact contact, List<String> expected) {
+    @Test
+    void givenAddNewContactMethodWhenAddingAnyContactThenAddsToContactList() {
         MobilePhone phone = new MobilePhone("297765431");
+        phone.addNewContact(new Contact("Paul", "335475869"));
+        assertEquals(Collections.singletonList("Paul -> 335475869"), phone.printContacts());
+    }
+
+    @Test
+    void givenUpdateContactMethodWhenUpdatingNonExistingContactThenReturnsFalse() {
+        MobilePhone phone = new MobilePhone("297765431");
+        assertFalse(phone.updateContact(new Contact("Paul", "335475869"), new Contact("abc", "34")));
+    }
+
+    @Test
+    void givenUpdateContactMethodWhenUpdatingExistingContactThenUpdatesContactList() {
+        MobilePhone phone = new MobilePhone("297765431");
+        Contact contact = new Contact("Paul", "335475869");
         phone.addNewContact(contact);
-        assertEquals(expected, phone.printContacts());
+        phone.updateContact(contact, new Contact("Derek", "123456789"));
+        assertEquals(Collections.singletonList("Derek -> 123456789"), phone.printContacts());
     }
 
-    @ParameterizedTest
-    @MethodSource
-    void givenUpdateContactMethodWhenUpdatingNonExistingContactThenReturnsFalse(Contact contact) {
-        MobilePhone phone = new MobilePhone("297765431");
-        assertFalse(phone.updateContact(contact, new Contact("abc", "34")));
-    }
 
-    @ParameterizedTest
-    @MethodSource
-    void givenUpdateContactMethodWhenUpdatingExistingContactThenUpdatesContactList(Contact oldContact,
-                                                                                   Contact newContact,
-                                                                                   List<String> expected) {
-        MobilePhone phone = new MobilePhone("297765431");
-        phone.addNewContact(oldContact);
-        phone.updateContact(oldContact, newContact);
-        assertEquals(expected, phone.printContacts());
-    }
-
-    private static Stream<Arguments> givenAddNewContactMethodWhenAddingAnyContactThenAddsToContactList() {
-        return Stream.of(
-                arguments(new Contact("Paul", "335475869"),
-                        Collections.singletonList("Paul -> 335475869"))
-        );
-    }
-
-    private static Stream<Arguments> givenUpdateContactMethodWhenUpdatingNonExistingContactThenReturnsFalse() {
-        return Stream.of(
-                arguments(new Contact("Paul", "335475869"))
-        );
-    }
-
-    private static Stream<Arguments> givenUpdateContactMethodWhenUpdatingExistingContactThenUpdatesContactList() {
-        return Stream.of(
-                arguments(
-                        new Contact("Paul", "335475869"),
-                        new Contact("Derek", "123456789"),
-                        Collections.singletonList("Derek -> 123456789"))
-        );
-    }
 }
