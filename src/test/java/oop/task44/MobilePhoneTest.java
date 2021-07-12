@@ -30,5 +30,12 @@ class MobilePhoneTest {
         assertEquals(Collections.singletonList("Derek -> 123456789"), phone.printContacts());
     }
 
+    @Test
+    void givenRemoveContactMethodWhenRemovingNonExistingContactThenThenReturnsFalse() {
+        MobilePhone phone = new MobilePhone("297765431");
+        phone.addNewContact(new Contact("Paul", "335475869"));
+        assertFalse(phone.removeContact(new Contact("Jack", "8")));
+    }
+
 
 }
