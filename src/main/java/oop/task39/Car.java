@@ -12,10 +12,22 @@ public class Car {
     }
 
     public String startEngine() {
-        return "The engine is starting";
+        return "Car -> startEngine()";
     }
 
-    public String startEngine() {
-        return "The engine is starting";
+    public String accelerate() {
+        return "Car -> accelerate()";
+    }
+
+    public String brake() {
+        return "Car -> brake()";
+    }
+
+    public boolean isCylinders() {
+        return cylinders;
+    }
+
+    public String getName() {
+        return name;
     }
 }

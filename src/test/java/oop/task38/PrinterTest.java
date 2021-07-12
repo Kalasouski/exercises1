@@ -37,8 +37,8 @@ class PrinterTest {
 
     private static Stream<Arguments> givenPrintPagesMethodWhenPassingAnyValuesThenReturnsNumberOfPagesToPrint() {
         return Stream.of(
-                arguments(50, true, 51,25),
-                arguments(50, false, 3,3)
+                arguments(50, true, 51, 25),
+                arguments(50, false, 3, 3)
         );
     }
 }
