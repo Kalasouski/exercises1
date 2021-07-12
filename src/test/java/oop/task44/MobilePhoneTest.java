@@ -8,7 +8,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 class MobilePhoneTest {
@@ -40,22 +41,22 @@ class MobilePhoneTest {
 
     private static Stream<Arguments> givenAddNewContactMethodWhenAddingAnyContactThenAddsToContactList() {
         return Stream.of(
-                arguments(new Contact("Paul","335475869"),
+                arguments(new Contact("Paul", "335475869"),
                         Collections.singletonList("Paul -> 335475869"))
         );
     }
 
     private static Stream<Arguments> givenUpdateContactMethodWhenUpdatingNonExistingContactThenReturnsFalse() {
         return Stream.of(
-                arguments(new Contact("Paul","335475869"))
+                arguments(new Contact("Paul", "335475869"))
         );
     }
 
     private static Stream<Arguments> givenUpdateContactMethodWhenUpdatingExistingContactThenUpdatesContactList() {
         return Stream.of(
                 arguments(
-                        new Contact("Paul","335475869"),
-                        new Contact("Derek","123456789"),
+                        new Contact("Paul", "335475869"),
+                        new Contact("Derek", "123456789"),
                         Collections.singletonList("Derek -> 123456789"))
         );
     }

@@ -21,14 +21,14 @@ public class Monster implements ISaveable {
 
     @Override
     public List<String> write() {
-        return Arrays.asList(name,String.valueOf(hitPoints),String.valueOf(strength));
+        return Arrays.asList(name, String.valueOf(hitPoints), String.valueOf(strength));
     }
 
     @Override
     public void read(List<String> list) {
-        if(list==null)
+        if (list == null)
             throw new NullPointerException("list must be non-null");
-        if(list.size()!=3)
+        if (list.size() != 3)
             throw new IllegalArgumentException("List size must be 3");
         this.name = list.get(0);
         this.hitPoints = Integer.parseInt(list.get(1));

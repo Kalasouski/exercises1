@@ -1,7 +1,6 @@
 package oop.task44;
 
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.util.Objects;
@@ -13,7 +12,7 @@ public class Contact {
     @Getter
     private final String phoneNumber;
 
-    public static Contact createContact(String name, String phoneNumber){
+    public static Contact createContact(String name, String phoneNumber) {
         return new Contact(name, phoneNumber);
     }
 
