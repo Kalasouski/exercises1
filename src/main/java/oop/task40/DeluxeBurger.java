@@ -2,9 +2,9 @@ package oop.task40;
 
 public class DeluxeBurger extends Hamburger {
     public DeluxeBurger() {
-        super("deluxe","ham","wheat",19.10);
-        super.addHamburgerAddition1("chips",0);
-        super.addHamburgerAddition1("drink",0);
+        super("deluxe", "ham", "wheat", 19.10);
+        super.addHamburgerAddition1("chips", 0);
+        super.addHamburgerAddition1("drink", 0);
     }
 
     @Override
