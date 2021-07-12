@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 class MonsterTest {
@@ -20,7 +20,7 @@ class MonsterTest {
 
     private static Stream<Arguments> givenWriteMethodWhenSettingAnyInstanceFieldsThenFieldsToStringList() {
         return Stream.of(
-                arguments(new Monster("Jack",3,4), Arrays.asList("Jack","3","4"))
+                arguments(new Monster("Jack", 3, 4), Arrays.asList("Jack", "3", "4"))
         );
     }
 }
