@@ -20,7 +20,8 @@ class MonsterTest {
 
     private static Stream<Arguments> givenWriteMethodWhenSettingAnyInstanceFieldsThenFieldsToStringList() {
         return Stream.of(
-                arguments(new Monster("Jack", 3, 4), Arrays.asList("Jack", "3", "4"))
+                arguments(new Monster("Jack", 3, 4), Arrays.asList("Jack", "3", "4")),
+                arguments(new Monster("Mike", 1, 2), Arrays.asList("Mike", "1", "2"))
         );
     }
 }

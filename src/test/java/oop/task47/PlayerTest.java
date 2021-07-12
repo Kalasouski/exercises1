@@ -20,7 +20,8 @@ class PlayerTest {
 
     private static Stream<Arguments> givenWriteMethodWhenSettingAnyInstanceFieldsThenFieldsToStringList() {
         return Stream.of(
-                arguments(new Player("Jack", 5, 6), Arrays.asList("Jack", "Sword", "5", "6"))
+                arguments(new Player("Jack", 5, 6), Arrays.asList("Jack", "Sword", "5", "6")),
+                arguments(new Player("Mike", 2, 1), Arrays.asList("Mike", "Sword", "2", "1"))
         );
     }
 }
