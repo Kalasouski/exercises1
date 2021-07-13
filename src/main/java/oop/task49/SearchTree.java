@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SearchTree<T extends Comparable<T>> implements NodeList<T> {
-
     private ListItem<T> root;
-
-    //private boolean isDeleted = true;
 
     public SearchTree(ListItem<T> root) {
         this.root = root;
