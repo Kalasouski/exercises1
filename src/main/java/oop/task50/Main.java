@@ -45,7 +45,7 @@ public class Main {
             var exits = locations.get(loc).getExits();
             System.out.print("Available exits are: ");
             for (var exit : exits.keySet()) {
-                System.out.print(exit+", ");
+                System.out.print(exit + ", ");
             }
             System.out.println();
             String direction = scanner.nextLine().toUpperCase();
