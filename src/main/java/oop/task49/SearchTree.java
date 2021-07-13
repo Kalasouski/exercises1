@@ -7,7 +7,7 @@ public class SearchTree<T extends Comparable<T>> implements NodeList<T> {
 
     private ListItem<T> root;
 
-    private boolean isDeleted = true;
+    //private boolean isDeleted = true;
 
     public SearchTree(ListItem<T> root) {
         this.root = root;
@@ -17,6 +17,15 @@ public class SearchTree<T extends Comparable<T>> implements NodeList<T> {
 
     }
 
+    class Pair {
+        final ListItem<T> item;
+        final boolean isDeleted;
+        public Pair(ListItem<T> item, boolean isDeleted) {
+            this.item = item;
+            this.isDeleted = isDeleted;
+        }
+    }
+
     @Override
     public ListItem<T> getRoot() {
         return root;
@@ -24,60 +33,68 @@ public class SearchTree<T extends Comparable<T>> implements NodeList<T> {
 
     @Override
     public boolean addItem(ListItem<T> item) {
-        if (item == null || item.value == null)
+        if (item == null || item.value == null) {
             return false;
+        }
         if (root == null) {
             root = item;
             return true;
         }
-        return addItem(item, root);
+        return addItemRecursively(item, root);
     }
 
-    public boolean addItem(ListItem<T> item, ListItem<T> root) {
-        int comparison = item.value.compareTo(root.value);
+    private boolean addItemRecursively(ListItem<T> item, ListItem<T> parentItem) {
+        int comparison = item.value.compareTo(parentItem.value);
         if (comparison < 0) {
-            if (root.previous() != null)
-                return addItem(item, root.previous());
-            else
-                root.setPrevious(item);
+            if (parentItem.previous() != null) {
+                return addItemRecursively(item, parentItem.previous());
+            } else {
+                parentItem.setPrevious(item);
+            }
             return true;
         } else if (comparison > 0) {
-            if (root.next() != null)
-                return addItem(item, root.next());
-            else
-                root.setNext(item);
+            if (parentItem.next() != null) {
+                return addItemRecursively(item, parentItem.next());
+            } else {
+                parentItem.setNext(item);
+            }
             return true;
         } else return false;
     }
 
     @Override
     public boolean removeItem(ListItem<T> item) {
-        removeItem(item, root);
-        return isDeleted;
+        return removeItemRecursively(item, root).isDeleted;
     }
 
-    private ListItem<T> removeItem(ListItem<T> item, ListItem<T> root) {
-        if (root == null) {
-            isDeleted = false;
-            return null; //false
+    private Pair removeItemRecursively(ListItem<T> item, ListItem<T> parentItem) {
+        if (parentItem == null) {
+            return new Pair(null,false);
         }
-        isDeleted = true;
-
-        int comparison = item.value.compareTo(root.value);
-
-        if (comparison < 0)
-            root.setPrevious(removeItem(item, root.previous()));
-        else if (comparison > 0)
-            root.setNext(removeItem(item, root.next()));
+        int comparison = item.value.compareTo(parentItem.value);
+        boolean isDeleted;
+        if (comparison < 0) {
+            Pair leftResult = removeItemRecursively(item, parentItem.previous());
+            parentItem.setPrevious(leftResult.item);
+            isDeleted = leftResult.isDeleted;
+        }
+        else if (comparison > 0) {
+            Pair rightResult = removeItemRecursively(item,parentItem.next());
+            parentItem.setNext(rightResult.item);
+            isDeleted = rightResult.isDeleted;
+        }
         else {
-            if (root.previous() == null)
-                return root.next();
-            else if (root.next() == null)
-                return root.previous();
-            root.value = minValue(root.next()).value;
-            root.setNext(removeItem(root, root.next()));
+            if (parentItem.previous() == null) {
+                return new Pair(parentItem.next(),true);
+            }
+            else if (parentItem.next() == null) {
+                return new Pair(parentItem.previous(),true);
+            }
+            parentItem.value = minValue(parentItem.next()).value;
+            parentItem.setNext(removeItemRecursively(parentItem, parentItem.next()).item);
+            isDeleted = true;
         }
-        return root;
+        return new Pair(parentItem,isDeleted);
     }
 
     private ListItem<T> minValue(ListItem<T> root) {

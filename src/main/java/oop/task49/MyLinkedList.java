@@ -21,8 +21,9 @@ public class MyLinkedList<T extends Comparable<T>> implements NodeList<T> {
 
     @Override
     public boolean addItem(ListItem<T> item) {
-        if (item == null || item.value == null)
+        if (item == null || item.value == null) {
             return false;
+        }
         if (root == null) {
             root = item;
             return true;
@@ -60,24 +61,28 @@ public class MyLinkedList<T extends Comparable<T>> implements NodeList<T> {
 
     @Override
     public boolean removeItem(ListItem<T> item) {
-        if (item == null || item.value == null)
+        if (item == null || item.value == null) {
             return false;
+        }
         ListItem<T> currentItem = root;
         while (currentItem != null) {
             int comparison = item.value.compareTo(currentItem.value);
             if (comparison == 0) {
-                if (currentItem == root)
+                if (currentItem == root) {
                     root = currentItem.next();
-                else {
+                } else {
                     currentItem.previous().setNext(currentItem.next());
-                    if (currentItem.next() != null)
+                    if (currentItem.next() != null) {
                         currentItem.next().setPrevious(currentItem.previous());
+                    }
                 }
                 return true;
             } else if (comparison > 0)
                 currentItem = currentItem.next();
-            else // we are at an item greater than the one to be deleted
+            else {
+                // we are at an item greater than the one to be deleted
                 return false;
+            }
         }
         // reached the end
         return false;

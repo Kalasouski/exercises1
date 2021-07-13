@@ -40,13 +40,15 @@ class SearchTreeTest {
 
     private static Stream<Arguments> givenAddItemMethodWhenPassingNonNullListItemsThenAddsToTree() {
         return Stream.of(
-                arguments(Arrays.asList(2, 1, 3), Arrays.asList(1, 2, 3)));
-
+                arguments(Arrays.asList(2, 1, 3), Arrays.asList(1, 2, 3)),
+                arguments(Arrays.asList(6, 4, 8, 7, 10), Arrays.asList(4, 6, 7, 8, 10))
+        );
     }
 
     private static Stream<Arguments> givenRemoveItemMethodWhenPassingNonNullListItemsThenRemovesFromTree() {
         return Stream.of(
-                arguments(Arrays.asList(2, 1, 3), Collections.singletonList(1), Arrays.asList(2, 3))
+                arguments(Arrays.asList(2, 1, 3), Collections.singletonList(1), Arrays.asList(2, 3)),
+                arguments(Arrays.asList(6, 4, 8, 7, 10), Collections.singletonList(8), Arrays.asList(4, 6, 7, 10))
         );
     }
 }
