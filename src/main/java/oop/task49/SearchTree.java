@@ -20,6 +20,7 @@ public class SearchTree<T extends Comparable<T>> implements NodeList<T> {
     class Pair {
         final ListItem<T> item;
         final boolean isDeleted;
+
         public Pair(ListItem<T> item, boolean isDeleted) {
             this.item = item;
             this.isDeleted = isDeleted;
@@ -69,7 +70,7 @@ public class SearchTree<T extends Comparable<T>> implements NodeList<T> {
 
     private Pair removeItemRecursively(ListItem<T> item, ListItem<T> parentItem) {
         if (parentItem == null) {
-            return new Pair(null,false);
+            return new Pair(null, false);
         }
         int comparison = item.value.compareTo(parentItem.value);
         boolean isDeleted;
@@ -77,24 +78,21 @@ public class SearchTree<T extends Comparable<T>> implements NodeList<T> {
             Pair leftResult = removeItemRecursively(item, parentItem.previous());
             parentItem.setPrevious(leftResult.item);
             isDeleted = leftResult.isDeleted;
-        }
-        else if (comparison > 0) {
-            Pair rightResult = removeItemRecursively(item,parentItem.next());
+        } else if (comparison > 0) {
+            Pair rightResult = removeItemRecursively(item, parentItem.next());
             parentItem.setNext(rightResult.item);
             isDeleted = rightResult.isDeleted;
-        }
-        else {
+        } else {
             if (parentItem.previous() == null) {
-                return new Pair(parentItem.next(),true);
-            }
-            else if (parentItem.next() == null) {
-                return new Pair(parentItem.previous(),true);
+                return new Pair(parentItem.next(), true);
+            } else if (parentItem.next() == null) {
+                return new Pair(parentItem.previous(), true);
             }
             parentItem.value = minValue(parentItem.next()).value;
             parentItem.setNext(removeItemRecursively(parentItem, parentItem.next()).item);
             isDeleted = true;
         }
-        return new Pair(parentItem,isDeleted);
+        return new Pair(parentItem, isDeleted);
     }
 
     private ListItem<T> minValue(ListItem<T> root) {
