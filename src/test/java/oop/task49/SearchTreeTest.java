@@ -46,7 +46,7 @@ class SearchTreeTest {
 
     private static Stream<Arguments> givenRemoveItemMethodWhenPassingNonNullListItemsThenRemovesFromTree() {
         return Stream.of(
-                arguments(Arrays.asList(2,1,3), Collections.singletonList(1), Arrays.asList(2,3))
+                arguments(Arrays.asList(2, 1, 3), Collections.singletonList(1), Arrays.asList(2, 3))
         );
     }
 }
