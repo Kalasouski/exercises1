@@ -1,14 +1,18 @@
 package oop.task49;
 
-import lombok.AllArgsConstructor;
-
 import java.util.ArrayList;
 import java.util.List;
 
-@AllArgsConstructor
 public class MyLinkedList<T extends Comparable<T>> implements NodeList<T> {
 
     private ListItem<T> root;
+
+    public MyLinkedList(ListItem<T> item) {
+        this.root = item;
+    }
+
+    public MyLinkedList() {
+    }
 
     @Override
     public ListItem<T> getRoot() {
@@ -17,6 +21,8 @@ public class MyLinkedList<T extends Comparable<T>> implements NodeList<T> {
 
     @Override
     public boolean addItem(ListItem<T> item) {
+        if (item == null || item.value == null)
+            return false;
         if (root == null) {
             root = item;
             return true;
@@ -54,6 +60,26 @@ public class MyLinkedList<T extends Comparable<T>> implements NodeList<T> {
 
     @Override
     public boolean removeItem(ListItem<T> item) {
+        if (item == null || item.value == null)
+            return false;
+        ListItem<T> currentItem = root;
+        while (currentItem != null) {
+            int comparison = item.value.compareTo(currentItem.value);
+            if (comparison == 0) {
+                if (currentItem == root)
+                    root = currentItem.next();
+                else {
+                    currentItem.previous().setNext(currentItem.next());
+                    if (currentItem.next() != null)
+                        currentItem.next().setPrevious(currentItem.previous());
+                }
+                return true;
+            } else if (comparison > 0)
+                currentItem = currentItem.next();
+            else // we are at an item greater than the one to be deleted
+                return false;
+        }
+        // reached the end
         return false;
     }
 

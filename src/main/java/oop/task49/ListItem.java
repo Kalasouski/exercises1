@@ -18,7 +18,6 @@ public abstract class ListItem<T extends Comparable<T>> {
 
     abstract ListItem<T> setPrevious(ListItem<T> item);
 
-
     public T getValue() {
         return value;
     }
